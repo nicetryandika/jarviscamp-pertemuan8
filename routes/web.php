@@ -31,3 +31,5 @@ Route::get('/users', function () {
         "title" => "Users"
     ]);
 });
+
+Route::get('/tables', [PostController::class, 'index']);
