@@ -1,16 +1,26 @@
 <?php
 
-namespace App\Models;
+namespace Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
-class Post extends Model
+/**
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Post>
+ */
+class PostFactory extends Factory
 {
-    use HasFactory;
-    protected $fillable = [
-        "title",
-        "description",
-        "author"
-    ];
+    /**
+     * Define the model's default state.
+     *
+     * @return array<string, mixed>
+     */
+    public function definition(): array
+    {
+        return [
+            'title' => fake()->sentence(),
+            'description' => fake()->paragraph(),
+            'author' => fake()->name(),
+            'category_id' => fake()->numberBetween(1, 9)
+        ];
+    }
 }
